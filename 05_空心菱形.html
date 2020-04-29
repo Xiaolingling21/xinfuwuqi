@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      border: 1px solid #333333;
+      /*width: 800px;*/
+      margin: 20px auto;
+    }
+    span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      /*border: 1px solid #eee;*/
+    }
+  </style>
+  <script>
+    document.write("<div>")
+    /**
+     * 打印空心菱形
+     */
+    var lineNum = +prompt("请输入菱形行数")
+
+    // 上边
+    for (var i = 0; i < lineNum; i++) {
+      // 打印空格
+      for(var j = 0; j < lineNum - 1 - i; j++){
+        document.write("<span>&nbsp;</span>")
+      }
+      // 打印 *
+      for (var k = 0; k < i * 2 + 1; k++) {
+        // 第一列 和 最后一列
+        if (k == 0 || k == i * 2) {
+          document.write("<span>*</span>")
+        } else { //其它列
+          document.write("<span>&nbsp;</span>")
+        }
+      }
+      // 换行
+      document.write("<br>")
+    }
+
+    // 下边
+    for (var i = 1; i < lineNum; i++) {
+      // 打印空格
+      for(var j = 0; j < i; j++){
+        document.write("<span>&nbsp;</span>")
+      }
+      // 打印 *
+      for (var k = 0; k < (lineNum - i) * 2 - 1; k++) {
+        // 第一列 和 最后一列
+        if (k == 0 || k == (lineNum - i) * 2 - 2) {
+          document.write("<span>*</span>")
+        } else { // 其它列
+          document.write("<span>&nbsp;</span>")
+        }
+      }
+      // 换行
+      document.write("<br>")
+    }
+
+    document.write("</div>");
+
+    var spanCount = lineNum * 2 - 1;
+    var w = spanCount * 20;
+    document.querySelector("div").style.width = w + "px";
+  </script>
+</head>
+<body>
+</body>
+</html>
